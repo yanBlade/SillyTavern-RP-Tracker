@@ -4,7 +4,7 @@ import {
     event_types,
     eventSource,
     saveSettingsDebounced
-} from '../../../script.js';
+} from '../../../../script.js';
 
 import { SlashCommand } from '../../slash-commands/SlashCommand.js';
 import { SlashCommandParser } from '../../slash-commands/SlashCommandParser.js';
