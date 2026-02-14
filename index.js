@@ -6,11 +6,13 @@ import {
     saveSettingsDebounced
 } from '../../../../script.js';
 
+alert("Привет, мир!");
+
 import { SlashCommand } from '../../../slash-commands/SlashCommand.js';
 import { SlashCommandParser } from '../../../slash-commands/SlashCommandParser.js';
-
+alert("Привет, мир! - 1");
 const META_KEY = 'rp_tracker_state';
-
+alert("Привет, мир! - 2");
 let state = {
     name: '',
     outfit: '',
@@ -18,32 +20,32 @@ let state = {
     date: '',
     notes: ''
 };
-
+alert("Привет, мир! - 3");
 const loadState = () => {
     if (!chat_metadata[META_KEY]) {
         chat_metadata[META_KEY] = structuredClone(state);
     }
     state = chat_metadata[META_KEY];
 };
-
+alert("Привет, мир! - 4");
 const saveState = () => {
     chat_metadata[META_KEY] = state;
     saveSettingsDebounced();
 };
-
+alert("Привет, мир! - 5");
 const init = () => {
-
+alert("Привет, мир! - 6");
     loadState();
-
+alert("Привет, мир! - 7");
     // --- UI ---
     const trigger = document.createElement('div');
     trigger.classList.add('rpt--trigger');
     trigger.textContent = '📘';
     trigger.title = 'RP Tracker';
-
+alert("Привет, мир! - 8");
     const panel = document.createElement('div');
     panel.classList.add('rpt--panel');
-
+alert("Привет, мир! - 9");
     const render = () => {
         panel.innerHTML = `
             <h3>RP Tracker</h3>
@@ -75,49 +77,54 @@ const init = () => {
 
             <button id="rpt-save">Save</button>
         `;
-
+alert("Привет, мир! - 10");
         document.getElementById('rpt-save').onclick = () => {
             state.name = document.getElementById('rpt-name').value;
             state.outfit = document.getElementById('rpt-outfit').value;
             state.location = document.getElementById('rpt-location').value;
             state.date = document.getElementById('rpt-date').value;
             state.notes = document.getElementById('rpt-notes').value;
+            alert("Привет, мир! - 11");
             saveState();
+            alert("Привет, мир! - 12");
         };
     };
-
+alert("Привет, мир! - 13");
     trigger.addEventListener('click', () => {
         panel.style.display =
             panel.style.display === 'none' ? 'block' : 'none';
+        alert("Привет, мир! - 14");
         render();
     });
-
+alert("Привет, мир! - 15");
     document.body.append(trigger);
+    alert("Привет, мир! - 16");
     document.body.append(panel);
-
+alert("Привет, мир! - 17"); 
     // --- Auto update after generation ---
     eventSource.on(event_types.GENERATION_ENDED, () => {
         const last = chat.at(-1);
+        alert("Привет, мир! - 18");
         if (!last?.mes) return;
-
+alert("Привет, мир! - 19");
         const text = last.mes.toLowerCase();
-
+alert("Привет, мир! - 20");
         if (text.includes('одет')) {
             state.outfit = last.mes;
         }
-
+alert("Привет, мир! - 21");
         if (text.includes('локац')) {
             state.location = last.mes;
         }
 
         saveState();
     });
-
+alert("Привет, мир! - 22");
     // --- reload on chat change ---
     eventSource.on(event_types.CHAT_CHANGED, () => {
         loadState();
     });
-
+alert("Привет, мир! - 23");
     // --- Slash command ---
     SlashCommandParser.addCommandObject(
         SlashCommand.fromProps({
@@ -128,5 +135,6 @@ const init = () => {
         })
     );
 };
-
+alert("Привет, мир! - 24");
 init();
+alert("Привет, мир! - 25");
