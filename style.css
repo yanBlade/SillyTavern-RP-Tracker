@@ -1,48 +1,89 @@
+/* --- Trigger Button --- */
 .rpt--trigger {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    background: var(--SmartThemeBlurTintColor);
-    backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
     font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    z-index: 10000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    user-select: none;
+    transition: transform 0.2s;
 }
 
+.rpt--trigger:hover {
+    transform: scale(1.1);
+}
+
+/* --- Panel --- */
 .rpt--panel {
     position: fixed;
-    bottom: 20px;
-    right: 72px;
-    width: 320px;
-    height: 420px;
-    background: var(--SmartThemeBlurTintColor);
-    backdrop-filter: blur(8px);
-    border-radius: 14px;
-    padding: 12px;
+    top: 50px;
+    right: 10px;
+    width: 350px;
+    max-height: 450px;
     overflow-y: auto;
-    z-index: 10000;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
     display: none;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 9999;
+    transition: all 0.3s ease;
 }
 
+.rpt--panel.rpt--panel-open {
+    display: block;
+}
+
+/* --- Rows --- */
 .rpt--row {
-    margin-bottom: 8px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
+.rpt--row label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* --- Inputs & Textarea --- */
 .rpt--row input,
 .rpt--row textarea {
-    border-radius: 8px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rpt--row textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* --- Save Button --- */
+#rpt-save {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
     border: none;
-    padding: 6px;
-    background: rgba(0,0,0,0.3);
-    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#rpt-save:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
