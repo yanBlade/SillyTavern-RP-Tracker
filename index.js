@@ -54,62 +54,38 @@ alert("Привет, мир! - 7");
     const panel = document.createElement('div');
     panel.classList.add('rpt--panel');
 
-    // Стили для trigger и panel
-    trigger.style.position = 'fixed';
-    trigger.style.top = '10px';
-    trigger.style.right = '10px';
-    trigger.style.background = 'orange';
-    trigger.style.padding = '5px 10px';
-    trigger.style.cursor = 'pointer';
-    trigger.style.zIndex = 9999;
-
-    panel.style.position = 'fixed';
-    panel.style.top = '50px';
-    panel.style.right = '10px';
-    panel.style.width = '320px';
-    panel.style.maxHeight = '400px';
-    panel.style.overflowY = 'auto';
-    panel.style.background = 'white';
-    panel.style.border = '1px solid black';
-    panel.style.padding = '10px';
-    panel.style.display = 'none';
-    panel.style.zIndex = 9999;
-    panel.style.boxShadow = '0 0 10px rgba(0,0,0,0.3)';
-    panel.style.fontFamily = 'sans-serif';
-    panel.style.fontSize = '14px';
-
 alert("Привет, мир! - 8");
 
     const render = () => {
         panel.innerHTML = `
             <h3>RP Tracker</h3>
 
-            <div class="rpt--row" style="margin-bottom:5px;">
+            <div class="rpt--row">
                 <label>Name</label>
-                <input id="rpt-name" value="${state.name}" style="width:100%;box-sizing:border-box;">
+                <input id="rpt-name" value="${state.name}">
             </div>
 
-            <div class="rpt--row" style="margin-bottom:5px;">
+            <div class="rpt--row">
                 <label>Outfit</label>
-                <input id="rpt-outfit" value="${state.outfit}" style="width:100%;box-sizing:border-box;">
+                <input id="rpt-outfit" value="${state.outfit}">
             </div>
 
-            <div class="rpt--row" style="margin-bottom:5px;">
+            <div class="rpt--row">
                 <label>Location</label>
-                <input id="rpt-location" value="${state.location}" style="width:100%;box-sizing:border-box;">
+                <input id="rpt-location" value="${state.location}">
             </div>
 
-            <div class="rpt--row" style="margin-bottom:5px;">
+            <div class="rpt--row">
                 <label>Date</label>
-                <input id="rpt-date" value="${state.date}" style="width:100%;box-sizing:border-box;">
+                <input id="rpt-date" value="${state.date}">
             </div>
 
-            <div class="rpt--row" style="margin-bottom:5px;">
+            <div class="rpt--row">
                 <label>Notes</label>
-                <textarea id="rpt-notes" style="width:100%;box-sizing:border-box;">${state.notes}</textarea>
+                <textarea id="rpt-notes">${state.notes}</textarea>
             </div>
 
-            <button id="rpt-save" style="width:100%;padding:5px;">Save</button>
+            <button id="rpt-save">Save</button>
         `;
 alert("Привет, мир! - 10");
 
@@ -136,7 +112,7 @@ alert("Привет, мир! - 17");
 
     // Toggle панели
     trigger.addEventListener('click', () => {
-        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        panel.classList.toggle('rpt--panel-open');
         alert("Привет, мир! - 14");
     });
 
