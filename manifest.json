@@ -1,0 +1,10 @@
+{
+    "display_name": "RP Tracker",
+    "loading_order": 100,
+    "js": "index.js",
+    "css": "style.css",
+    "author": "GeneratedByChatGPT",
+    "version": "1.0.0",
+    "homePage": "https://github.com/yanBlade/SillyTavern-RP-Tracker",
+    "minimum_client_version": "1.10.0"
+}
