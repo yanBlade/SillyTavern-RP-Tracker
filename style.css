@@ -1,0 +1,25 @@
+.rptracker_icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB4bWxucz0iaHR0cDovL3d3dy53M...' );
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.rptracker_panel {
+    position: fixed;
+    bottom: 20px;
+    right: 70px;
+    width: 300px;
+    height: 380px;
+    background: #111;
+    color: #eee;
+    border: 1px solid #444;
+    padding: 10px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+}
