@@ -6,8 +6,8 @@ import {
     saveSettingsDebounced
 } from '../../../../script.js';
 
-import { SlashCommand } from '../../slash-commands/SlashCommand.js';
-import { SlashCommandParser } from '../../slash-commands/SlashCommandParser.js';
+import { SlashCommand } from '../../../slash-commands/SlashCommand.js';
+import { SlashCommandParser } from '../../../slash-commands/SlashCommandParser.js';
 
 const META_KEY = 'rp_tracker_state';
 
@@ -35,6 +35,7 @@ const init = () => {
 
     loadState();
 
+    // --- UI ---
     const trigger = document.createElement('div');
     trigger.classList.add('rpt--trigger');
     trigger.textContent = '📘';
@@ -94,6 +95,7 @@ const init = () => {
     document.body.append(trigger);
     document.body.append(panel);
 
+    // --- Auto update after generation ---
     eventSource.on(event_types.GENERATION_ENDED, () => {
         const last = chat.at(-1);
         if (!last?.mes) return;
@@ -111,10 +113,12 @@ const init = () => {
         saveState();
     });
 
+    // --- reload on chat change ---
     eventSource.on(event_types.CHAT_CHANGED, () => {
         loadState();
     });
 
+    // --- Slash command ---
     SlashCommandParser.addCommandObject(
         SlashCommand.fromProps({
             name: 'rp-get',
